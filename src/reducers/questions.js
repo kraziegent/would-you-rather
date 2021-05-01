@@ -9,11 +9,19 @@ export default function questions(state = {}, action) {
             }
         case ADD_QUESTION:
             return {
-
+                ...state,
+                [action.question.id]: action.question,
             }
         case ADD_ANSWER:
             return {
-
+                ...state,
+                [action.qid]: {
+                    ...state[action.qid],
+                    [action.answer]: {
+                      ...state[action.qid][action.answer],
+                      votes: state[action.qid][action.answer].votes.concat([action.user])
+                    }
+                  }
             }
         default:
             return state;
