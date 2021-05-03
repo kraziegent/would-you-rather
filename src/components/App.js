@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Route, Switch, withRouter} from 'react-router-dom'
 import { connect } from 'react-redux';
-import LoadingBar from 'react-redux-loading';
+import LoadingBar from 'react-redux-loading-bar';
 import {handleInitialData} from '../actions/shared';
 import NewQuestion from './NewQuestion';
 import Dashboard from './Dashboard';
