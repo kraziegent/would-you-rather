@@ -30,7 +30,7 @@ function Nav (props) {
                             {`Hello, ${user.name}`}
                         </li>
                         <li>
-                            <img src={user.avatarURL} alt={`Avatar of ${user.name}`} className="" />
+                            <img src={user.avatarURL} alt={`Avatar of ${user.name}`} className="avatar" />
                         </li>
                         <li>
                             <a href='/' onClick={() => doLogout(dispatch)}>

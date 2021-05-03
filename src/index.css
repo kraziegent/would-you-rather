@@ -50,6 +50,13 @@ a {
   border-width: 2px;
 }
 
+.avatar {
+  vertical-align: middle;
+  height: 50px;
+  border-radius: 25px;
+  margin: 10px;
+}
+
 .center {
   text-align: center;
 }
@@ -78,6 +85,14 @@ a {
 .ul {
   display: flex;
   margin-left: auto;
+}
+
+.ul > li > .avatar {
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  height: 28px;
+  border-radius: 50%;
 }
 
 .nav ul {
@@ -201,12 +216,6 @@ li > a {
 .answer {
   background: #a6f8b8;
   border: 1px solid #6ef785;
-}
-
-.avatar {
-  height: 50px;
-  border-radius: 25px;
-  margin: 10px;
 }
 
 .box-header {
