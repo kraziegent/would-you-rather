@@ -115,6 +115,10 @@ li {
   max-width: 120px;
 }
 
+.box > .tabcontent > .box-sm {
+  max-width: 480px;
+}
+
 .box-body {
   margin: 0;
   padding: 10px;
@@ -321,4 +325,35 @@ li {
   margin-bottom: 10px;
   font-weight: bold;
   font-size: small;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
+
+.tab button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  width: 50%;
+  display: inline;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  color: rgb(49, 141, 72);
+  background-color: #f1f1f1;
+}
+
+.tabcontent {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
 }
