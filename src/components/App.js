@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {Route, withRouter} from 'react-router-dom'
 import { connect } from 'react-redux';
 import LoadingBar from 'react-redux-loading';
 import {handleInitialData} from '../actions/shared';
@@ -9,6 +9,7 @@ import Leaderboard from './Leaderboard';
 import Answer from './Answer';
 import Nav from './Nav';
 import Login from './Login';
+import { logout } from '../actions/authedUser';
 
 class App extends Component {
   componentDidMount() {
@@ -16,25 +17,28 @@ class App extends Component {
   }
 
   render() {
-    const {authedUser} = this.props;
+    const {authedUser, location, dispatch, history} = this.props;
+
+    if(location && location.pathname === '/logout') {
+      dispatch(logout());
+      history.push('/');
+    }
 
     return (
-      <Router>
-        <div className='container'>
-          <Nav authedUser={authedUser} />
-          {authedUser === null ?
-            <Login />
-            :<div>
-              <LoadingBar style={{ backgroundColor: 'green', height: '5px' }} />
-            
-              <Route path='/' exact component={Dashboard} />
-              <Route path='/leaderboard' component={Leaderboard} />
-              <Route path='/add' component={NewQuestion} />
-              <Route path='/questions/:question_id' component={Answer} />
-            </div>
-          }
-        </div>
-      </Router>
+      <div className='container'>
+        <Nav authedUser={authedUser} />
+        {authedUser === null ?
+          <Login />
+          :<div>
+            <LoadingBar style={{ backgroundColor: 'green', height: '5px' }} />
+          
+            <Route path='/' exact component={Dashboard} />
+            <Route path='/leaderboard' component={Leaderboard} />
+            <Route path='/add' component={NewQuestion} />
+            <Route path='/questions/:question_id' component={Answer} />
+          </div>
+        }
+      </div>
     )
   }
 }
@@ -45,4 +49,4 @@ function mapStateToProps({authedUser}) {
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps)(App));

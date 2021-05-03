@@ -70,11 +70,22 @@ a {
   margin-bottom: 10px;
 }
 
+.nav {
+  border-bottom: 2px solid rgb(97, 196, 122);
+  margin-bottom: 10px;
+}
+
+.ul {
+  display: flex;
+  margin-left: auto;
+}
+
 .nav ul {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   text-decoration: none;
+  margin-bottom: 12px;
 }
 
 .nav li:first-child {
@@ -87,12 +98,21 @@ ul {
 
 li {
   list-style-type: none;
-  padding: 10px;
+  margin: 10px;
   text-decoration: none;
+  height: 10px;
+}
+
+li > a {
+  padding: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .active {
   font-weight: bold;
+  color: white;
+  background: rgb(97, 196, 122);
 }
 
 .box {
@@ -348,6 +368,7 @@ li {
 }
 
 .tab button.active {
+  font-weight: bold;
   color: rgb(49, 141, 72);
   background-color: #f1f1f1;
 }
