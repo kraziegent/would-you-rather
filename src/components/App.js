@@ -9,7 +9,6 @@ import Leaderboard from './Leaderboard';
 import Answer from './Answer';
 import Nav from './Nav';
 import Login from './Login';
-import { logout } from '../actions/authedUser';
 
 class App extends Component {
   componentDidMount() {
@@ -17,12 +16,7 @@ class App extends Component {
   }
 
   render() {
-    const {authedUser, location, dispatch, history} = this.props;
-
-    if(location && location.pathname === '/logout') {
-      dispatch(logout());
-      history.push('/');
-    }
+    const {authedUser} = this.props;
 
     return (
       <div className='container'>

@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { NavLink } from "react-router-dom";
+import { logout } from '../actions/authedUser';
 
 function Nav (props) {
-    const {user} = props;
+    const {user, dispatch} = props;
 
     return (
         <nav className="nav">
@@ -32,15 +33,19 @@ function Nav (props) {
                             <img src={user.avatarURL} alt={`Avatar of ${user.name}`} className="" />
                         </li>
                         <li>
-                            <NavLink to='/logout' activeClassName='active'>
+                            <a href='/' onClick={() => doLogout(dispatch)}>
                                 Logout
-                            </NavLink>
+                            </a>
                         </li>
                     </div>
                 }
             </ul>
         </nav>
     )
+}
+
+function doLogout(dispatch) {
+    dispatch(logout());
 }
 
 function mapStateToProps({users}, {authedUser}) {
