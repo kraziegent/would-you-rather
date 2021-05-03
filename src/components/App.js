@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route, withRouter} from 'react-router-dom'
+import {Route, Switch, withRouter} from 'react-router-dom'
 import { connect } from 'react-redux';
 import LoadingBar from 'react-redux-loading';
 import {handleInitialData} from '../actions/shared';
@@ -9,6 +9,7 @@ import Leaderboard from './Leaderboard';
 import Answer from './Answer';
 import Nav from './Nav';
 import Login from './Login';
+import FourZeroFour from './FourZeroFour';
 
 class App extends Component {
   componentDidMount() {
@@ -25,11 +26,14 @@ class App extends Component {
           <Login />
           :<div>
             <LoadingBar style={{ backgroundColor: 'green', height: '5px' }} />
-          
-            <Route path='/' exact component={Dashboard} />
-            <Route path='/leaderboard' component={Leaderboard} />
-            <Route path='/add' component={NewQuestion} />
-            <Route path='/questions/:question_id' component={Answer} />
+
+            <Switch>
+              <Route path='/' exact component={Dashboard} />
+              <Route path='/leaderboard' component={Leaderboard} />
+              <Route path='/add' component={NewQuestion} />
+              <Route path='/questions/:question_id' component={Answer} />
+              <Route component={FourZeroFour} />
+            </Switch>
           </div>
         }
       </div>

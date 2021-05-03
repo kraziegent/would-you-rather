@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { handleAddAnswer } from '../actions/questions';
+import FourZeroFour from './FourZeroFour';
 import Result from './Result';
 import Vote from './Vote';
 
@@ -17,6 +18,13 @@ class Answer extends Component {
 
     render() {
         const {question, user, authedUser} = this.props;
+
+        if(question === undefined) {
+            return (
+                <FourZeroFour />
+            )
+        }
+
         const answered = question.optionOne.votes.includes(authedUser) || question.optionTwo.votes.includes(authedUser);
 
         return (
@@ -36,8 +44,9 @@ class Answer extends Component {
 
 function mapStateToProps({questions, users, authedUser}, props) {
     const {question_id} = props.match.params;
+
     const question = questions[question_id];
-    const user = users[question.author];
+    const user = question !== undefined ? users[question.author] : null;
 
     return {
         id: question_id,
