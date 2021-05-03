@@ -12,6 +12,8 @@ export default function Result (props) {
             <h2>Result:</h2>
 
             <div className={`box-inner ${optionOne.votes.includes(authedUser) ? 'answer' : ''}`}>
+                {optionOne.votes.includes(authedUser) && <div className='topRightFixed center'>Your Vote</div>}
+                
                 <p>{`Would you rather ${optionOne.text}?`}</p>
                 <div className='percent'>
                     <div className='percent-load' style={{width: `${onePercent}%`}}>
@@ -22,6 +24,8 @@ export default function Result (props) {
             </div>
 
             <div className={`box-inner ${optionTwo.votes.includes(authedUser) ? 'answer' : ''}`}>
+                {optionTwo.votes.includes(authedUser) && <div className='topRightFixed center'>Your Vote</div>}
+
                 <p>{`Would you rather ${optionTwo.text}?`}</p>
                 <div className='percent'>
                     <div className='percent-load' style={{width: `${twoPercent}%`}}>

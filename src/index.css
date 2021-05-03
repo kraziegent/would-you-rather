@@ -205,10 +205,11 @@ li > a {
 }
 
 .box-inner {
+  position: relative;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   border: 1px solid #dad7d7;
   border-radius: 3px;
 }
@@ -386,4 +387,19 @@ li > a {
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
+}
+
+.topRightFixed {
+  position: absolute;
+  top: -15px;
+  left: 93%;
+  background: rgb(167, 167, 43);
+  padding: 6px;
+  color: #fff;
+  font-size: 0.6em;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  float: right;
 }
